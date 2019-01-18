@@ -63,7 +63,7 @@ Patch:
 >     if [[ $line != ${PODS_ROOT}* ]]; then
 ```
 
-It seems that the author want to do filter of that `Pods` folder, but use the wrong shell syntax. The condition check always passed.
+It seems that the author want to do filter of that `Pods` folder, but use the wrong shell syntax. The condition check always passed. So that all your current working directory's `xcassets` will be compiled into main bundle. (It's really suck. And I'm also disagreed with this `Find all other xcassets` logic, which does not check the project logic group but based on directory)
 
 For workaround, add this patch in your `Podfile`'s post_install script. Because you can not always assume all Pods using xcassets with `resources`. If at least 1 use that syntax, you'll enter the trap :)
 
