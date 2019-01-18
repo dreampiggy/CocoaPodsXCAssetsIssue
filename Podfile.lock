@@ -1,0 +1,29 @@
+PODS:
+  - TestLibrary (0.1.0)
+  - TestLibrary2 (0.1.0)
+
+DEPENDENCIES:
+  - TestLibrary (from `https://github.com/dreampiggy/CocoaPodsTestLibrary.git`)
+  - TestLibrary2 (from `https://github.com/dreampiggy/CocoaPodsTestLibrary2.git`)
+
+EXTERNAL SOURCES:
+  TestLibrary:
+    :git: https://github.com/dreampiggy/CocoaPodsTestLibrary.git
+  TestLibrary2:
+    :git: https://github.com/dreampiggy/CocoaPodsTestLibrary2.git
+
+CHECKOUT OPTIONS:
+  TestLibrary:
+    :commit: bfea4159e2fb99541ae13f5a494f5b357f5eec67
+    :git: https://github.com/dreampiggy/CocoaPodsTestLibrary.git
+  TestLibrary2:
+    :commit: ab84cbdec5b923d1985c99522c62cf24828f8647
+    :git: https://github.com/dreampiggy/CocoaPodsTestLibrary2.git
+
+SPEC CHECKSUMS:
+  TestLibrary: 3d0bd2e0364f472c6c3164c8f1955eae4292a5c9
+  TestLibrary2: 006cbba7c3552bddaba084a2593bc4399036bb36
+
+PODFILE CHECKSUM: b8a7ac6a61677056f306d130c640988994b10d4c
+
+COCOAPODS: 1.5.3

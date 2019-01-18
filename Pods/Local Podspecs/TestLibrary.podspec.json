@@ -1,0 +1,27 @@
+{
+  "name": "TestLibrary",
+  "version": "0.1.0",
+  "summary": "A short description of TestLibrary.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/lizhuoli1126@126.com/TestLibrary",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lizhuoli1126@126.com": "lizhuoli1126@126.com"
+  },
+  "source": {
+    "git": "https://github.com/lizhuoli1126@126.com/TestLibrary.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "TestLibrary/Classes/**/*",
+  "resource_bundles": {
+    "TestLibrary": [
+      "TestLibrary/Assets/TestLibrary.xcassets"
+    ]
+  }
+}
