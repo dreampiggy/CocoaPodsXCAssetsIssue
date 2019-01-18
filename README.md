@@ -41,7 +41,7 @@ You can use [cartool](https://github.com/steventroughtonsmith/cartool) to export
 
 # Fix or workaround ?
 
-The bug was cause by the shell script phase. `[CP] Copy Pods Resources`. To fix that, just modify one line inside that script. The script is generated each time you run `pod install`. It's generated from CocoaPods [here](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/generator/copy_resources_script.rb)
+The bug was cause by the shell script phase. `[CP] Copy Pods Resources`. To fix that, just modify one line inside that script. The script is generated each time you run `pod install`. The original source code is [here](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/generator/copy_resources_script.rb).
 
 Original:
 
