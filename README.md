@@ -3,7 +3,9 @@
 
 # What's for
 
-It seems that CocoaPods have a really huge bug about Asset Catalog, the root case came from 4 years ago, but not been fixed till today. (The latest 1.6.0-beta2 still have this issue). I create a demo to trigger the issue and show the result.
+It seems that CocoaPods have a really huge bug about Asset Catalog, the root case came from 4 years ago, but not been fixed till today(2019/1/18). The latest 1.6.0-beta2 still have this issue. So I create a demo to trigger the issue and show the result.
+
+> Seems there are already some people found the issue, like https://github.com/CocoaPods/CocoaPods/issues/6159. But sadly, no changes was merged to fix this till today.
 
 # Issue
 
@@ -23,7 +25,7 @@ s.resource_bundles = {
 s.resources = ['TestLibrary2/Assets/TestLibrary2.xcassets']
 ```
 
-However, when your Application project, including at least one Pods using the `resources` with xcassets. Then all the Pods' xcassets resource (whatever it come from), will be duplicated twice, inside your App's main bundle. It stored inside your App's product app's root path via `Assets.car`.
+However, when your Application project, including **at least 1** Pods using the `resources` with xcassets. Then all the Pods' xcassets resource (whatever it come from), will be duplicated twice, inside your App's main bundle. It stored inside your App's product app's root path via `Assets.car`.
 
 See the screenshot here. The App's main bundle `Assets.car`, contains all the other Pods's image resources. However, the `TestLibrary` itself also contains its image resources.
 
@@ -39,7 +41,7 @@ You can use [cartool](https://github.com/steventroughtonsmith/cartool) to export
 
 # Fix or workaround ?
 
-The bug was cause by the shell script phase. `[CP] Copy Pods Resources`. To fix that, just modify one line inside that script. The script is generated each time you run `pod install`.
+The bug was cause by the shell script phase. `[CP] Copy Pods Resources`. To fix that, just modify one line inside that script. The script is generated each time you run `pod install`. It's generated from CocoaPods [here](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/generator/copy_resources_script.rb)
 
 Original:
 
