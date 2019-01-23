@@ -31,7 +31,7 @@ See the screenshot here. The App's main bundle `Assets.car`, contains all the ot
 
 ![](./Bug.png)
 
-But, since `TestLibrary` using `resource_bundles`, its resource should not appear outside its bundle. The Main bundle should not contains 1-5.jpg.
+But, since `TestLibrary` using `resource_bundles`, its resource should not appear outside its bundle. The Main bundle should not contains 1-5.png.
 
 # Reproduce
 
@@ -63,8 +63,10 @@ Patch:
 >     if [[ $line != ${PODS_ROOT}* ]]; then
 ```
 
-It seems that the author want to do filter of that `Pods` folder, but use the wrong shell syntax. The condition check always passed. So that all your current working directory's `xcassets` will be compiled into main bundle. (It's really suck. And I'm also disagreed with this `Find all other xcassets` logic, which does not check the project logic group but based on directory)
+It seems that the author want to do filter of that `Pods` folder, but use the wrong shell syntax. The condition check always passed. So that all your current working directory's `xcassets` will be compiled into main bundle.
 
-For workaround, add this patch in your `Podfile`'s post_install script. Because you can not always assume all Pods using xcassets with `resources`. If at least 1 use that syntax, you'll enter the trap :)
+To say, I'm also disagreed with this `Find all other xcassets` logic, which does not check the project logic group but based on directory. A better solution, is that we use xcodeproj to search all xcassets resources should be compiled for the current build target. Which base on the project but not file directory.
+
+For workaround, add this patch in your `Podfile`'s post_install script. Because you can not always assume all Pods using xcassets with `resource_bundles`. If at least 1 use that `resource` syntax, you'll enter the trap :)
 
 
